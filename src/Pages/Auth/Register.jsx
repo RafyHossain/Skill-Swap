@@ -1,10 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../../Context/AuthProvider';
+
 
 const Register = () => {
-    const handleRegister=()=>{
+  const navigate=useNavigate();
+  const { createUser, setUser } = useContext(AuthContext);
+    const handleRegister=(event)=>{
         event.preventDefault();
-        event.target.name;
+       const name= event.target.name.value;
+       const email=event.target.email.value;
+       const photo=event.target.photoURL.value;
+       const password=event.target.password.value;
+
+       console.log({name,email,photo,password})
+       createUser(email,password)
+       .then(result=>{
+        const user=result.user;
+        console.log(user);
+        setUser(user);
+        alert("Registration Successfull")
+        navigate("/");
+       })
+       .catch(error=>{
+        console.log(error);
+        
+       })
 
     }
     return (
@@ -52,7 +73,7 @@ const Register = () => {
               required
             />
 
-            <button type="submit" className="btn btn-neutral mt-4">
+            <button to="/" type="submit" className="btn btn-neutral mt-4">
               Register
             </button>
           </fieldset>

@@ -8,13 +8,14 @@ const Hero = () => {
       style={{
         backgroundImage:
           "url(https://i.ibb.co.com/chqM5v6n/Gemini-Generated-Image-vhskpcvhskpcvhsk.png)",
+          
       }}
     >
       <div className="hero-overlay"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">
-            Exchange Skills. Grow Together.
+            Exchange Skills  Grow Together.
           </h1>
 
           <p className="mb-5">
