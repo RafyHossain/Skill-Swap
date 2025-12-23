@@ -17,7 +17,7 @@ const Navbar = () => {
         <li><a>My Profile</a></li>
       </ul>
     </div>
-    <img className='w-[70px] h-[50px] rounded-full' src={logo} alt="Logo" />
+    <img  className='w-[70px] h-[50px] mr-5 rounded-full' src={logo} alt="Logo" />
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -25,9 +25,9 @@ const Navbar = () => {
       <li><a>My Profile</a></li>
     </ul>
   </div>
-  <div className="navbar-end ">
-    <Link to='/auth/login' className="btn btn-primary">Login</Link>
-    <Link to="/auth/register" className="btn btn-primary ml-5">Sign Up</Link>
+  <div className="navbar-end mr-5">
+    <Link to='/auth/login' className="btn btn-primary rounded-xl">Login</Link>
+    <Link to="/auth/register" className="btn btn-primary rounded-xl ml-5">Sign Up</Link>
   </div>
 </div>
     );

@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners.",
+    "image": "https://i.ibb.co.com/JFzXyFBW/Gemini-Generated-Image-2smqqa2smqqa2smq.png",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers.",
+    "image": "https://i.ibb.co.com/8DCJd7wJ/Gemini-Generated-Image-vk1cdivk1cdivk1c.png",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Web Development Basics",
+    "providerName": "Rafi Ahmed",
+    "providerEmail": "rafi@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn HTML, CSS, and basic JavaScript from scratch.",
+    "image": "https://i.ibb.co.com/GQSRZTSb/Gemini-Generated-Image-xe057axe057axe05.png",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Ananya Roy",
+    "providerEmail": "ananya@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Relaxing yoga sessions focused on flexibility and mindfulness.",
+    "image": "https://i.ibb.co.com/TqHqYmn2/Gemini-Generated-Image-nxk4kknxk4kknxk4.png",
+    "category": "Fitness"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Basic Photography",
+    "providerName": "David Chen",
+    "providerEmail": "david@skillswap.com",
+    "price": 18,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Learn camera handling and composition for beginners.",
+    "image": "https://i.ibb.co.com/GQSRZTSb/Gemini-Generated-Image-xe057axe057axe05.png",
+    "category": "Creative"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Math Tutoring (High School)",
+    "providerName": "Nusrat Jahan",
+    "providerEmail": "nusrat@skillswap.com",
+    "price": 12,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "One-on-one math tutoring for high school students.",
+    "image": "https://i.ibb.co.com/GQSRZTSb/Gemini-Generated-Image-xe057axe057axe05.png",
+    "category": "Education"
+  }
+]

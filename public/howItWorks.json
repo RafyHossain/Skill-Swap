@@ -33,5 +33,13 @@
     "subtitle": "Swap skills, help each other grow, and keep the cycle going.",
     "description": "Enjoy teaching what you know and learning something new — it's a win-win.",
     "icon": "repeat"
+  },
+  {
+    "id": 6,
+    "title": "Rate & Review",
+    "subtitle": "Share your experience and help others choose better.",
+    "description": "Give ratings and reviews after each skill swap to build trust in the community.",
+    "icon": "star"
+
   }
 ]

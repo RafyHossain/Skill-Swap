@@ -13,7 +13,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomeLayout></HomeLayout>,
      children: [
-      { index: true, Component: Home },
+      { 
+        index: true,
+         Component: Home,
+         loader: async () => {
+          const res = await fetch("/skills.json");
+          return res.json();
+         }
+         },
       
      ]
   },

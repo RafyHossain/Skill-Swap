@@ -34,6 +34,14 @@ const Register = () => {
               placeholder="Email"
               required
             />
+            <label className="label">Photo URL</label>
+            <input
+              name="photoURL"
+              type="text"
+              className="input"
+              placeholder="Photo URL"
+              required
+            />
 
             <label className="label">Password</label>
             <input

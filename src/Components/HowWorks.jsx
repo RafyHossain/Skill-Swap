@@ -6,7 +6,9 @@ import {
   FaHandshake,
   FaComments,
   FaSyncAlt,
+  FaStreetView,
 } from "react-icons/fa";
+import { MdOutlineRateReview } from 'react-icons/md';
 
 
 const HowWorks = () => {
@@ -25,6 +27,7 @@ const HowWorks = () => {
     handshake: <FaHandshake className="text-3xl text-primary" />,
     chat: <FaComments className="text-3xl text-primary" />,
     repeat: <FaSyncAlt className="text-3xl text-primary" />,
+      star: <MdOutlineRateReview className="text-3xl text-primary" />
   };
     return (
         <section className="py-16 bg-base-100">
