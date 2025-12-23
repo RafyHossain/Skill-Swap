@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Create a Profile",
+    "subtitle": "Sign up and let people know what you can teach and want to learn.",
+    "description": "Sign up and set up your profile with skills you offer and want to learn.",
+    "icon": "user"
+  },
+  {
+    "id": 2,
+    "title": "Browse Users",
+    "subtitle": "Discover people with matching interests and skills.",
+    "description": "Use filters and search to find users who match your learning or teaching goals.",
+    "icon": "search"
+  },
+  {
+    "id": 3,
+    "title": "Send Connection Requests",
+    "subtitle": "Reach out to users you'd like to connect with.",
+    "description": "Send a request to start a skill swap. You both must accept to start chatting.",
+    "icon": "handshake"
+  },
+  {
+    "id": 4,
+    "title": "Start Chatting",
+    "subtitle": "Coordinate with your match to begin the exchange.",
+    "description": "Use the built-in chat to discuss what and how you want to learn or teach.",
+    "icon": "chat"
+  },
+  {
+    "id": 5,
+    "title": "Learn & Teach Together",
+    "subtitle": "Swap skills, help each other grow, and keep the cycle going.",
+    "description": "Enjoy teaching what you know and learning something new — it's a win-win.",
+    "icon": "repeat"
+  }
+]
