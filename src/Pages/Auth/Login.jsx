@@ -1,11 +1,13 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthProvider";
+import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   //const location=useLocation();
-  const navigate=useNavigate();
-  const { setUser, logIn ,googleLogIn} = use(AuthContext);
+  const navigate = useNavigate();
+  const { setUser, logIn, googleLogIn } = use(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -15,29 +17,28 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         alert("Login Successful");
-       navigate("/");
-       // navigate(`${location.state ? location.state : "/"}`);
-        
+        navigate("/");
+        // navigate(`${location.state ? location.state : "/"}`);
+
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     googleLogIn()
-    .then(result=>{
-      const user=result.user;
-      console.log(user)
-      setUser(user);
-      alert("Login Successfull")
-      navigate("/")
-      
-    })
-    .catch(error=>{
-        console.log(error)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setUser(user);
+        alert("Login Successfull");
+        navigate("/");
       })
-  }
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
@@ -54,22 +55,38 @@ const Login = () => {
               placeholder="Email"
               required
             />
-            <label className="label">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="input"
-              placeholder="Password"
-              required
-            />
+            <div>
+              <label className="label">Password</label>
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                className="input"
+                placeholder="Password"
+                required
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-12 top-5/13 -translate-y-1/2 cursor-pointer "
+              >
+                {showPassword ? (
+                  <IoIosEyeOff size={20} />
+                ) : (
+                  <IoMdEye size={20} />
+                )}
+              </span>
+            </div>
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button  type="submit" className="btn btn-neutral mt-4">
+            <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>
             <p className="font-semibold text-center py-2 text-xl ">or</p>
-            <button to='/' onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5]">
+            <button
+              to="/"
+              onClick={handleGoogleLogin}
+              className="btn bg-white text-black border-[#e5e5e5]"
+            >
               <svg
                 aria-label="Google logo"
                 width="16"

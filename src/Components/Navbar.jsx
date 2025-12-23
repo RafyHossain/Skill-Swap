@@ -83,10 +83,10 @@ const Navbar = () => {
                 <img
                   src={user.photoURL}
                   alt=""
-                  className="w-10 h-10 rounded-full object-cover border cursor-pointer"
+                  className="w-12 h-12 rounded-full object-cover border cursor-pointer"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer">
+                <div className="w-12 h-12 rounded-full border flex items-center justify-center cursor-pointer">
                   <FaUser className="text-xl" />
                 </div>
               )}
