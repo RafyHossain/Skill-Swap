@@ -1,8 +1,9 @@
 import React, { use } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
+  //const location=useLocation();
   const navigate=useNavigate();
   const { setUser, logIn ,googleLogIn} = use(AuthContext);
   const handleLogin = (event) => {
@@ -14,7 +15,8 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         alert("Login Successful");
-        navigate("/");
+       navigate("/");
+       // navigate(`${location.state ? location.state : "/"}`);
         
         console.log(user);
       })
@@ -26,6 +28,7 @@ const Login = () => {
     googleLogIn()
     .then(result=>{
       const user=result.user;
+      console.log(user)
       setUser(user);
       alert("Login Successfull")
       navigate("/")

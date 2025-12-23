@@ -1,4 +1,5 @@
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router";
 
 const PopularSkillCard = ({ skill }) => {
   const { skillName, image, rating, price } = skill;
@@ -25,9 +26,9 @@ const PopularSkillCard = ({ skill }) => {
           ${price}
         </p>
 
-        <button className="btn btn-outline btn-primary btn-sm w-full">
+        <Link to="/auth/login" className="btn btn-outline btn-primary btn-sm w-full">
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

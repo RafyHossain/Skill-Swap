@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
   const navigate=useNavigate();
-  const { createUser, setUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser } = useContext(AuthContext);
     const handleRegister=(event)=>{
         event.preventDefault();
        const name= event.target.name.value;
@@ -17,8 +17,19 @@ const Register = () => {
        createUser(email,password)
        .then(result=>{
         const user=result.user;
-        console.log(user);
-        setUser(user);
+        //console.log(user);
+        //setUser(user);
+         updateUser({
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            //console.log(error);
+            setUser(user);
+          });
         alert("Registration Successfull")
         navigate("/");
        })
@@ -55,13 +66,13 @@ const Register = () => {
               placeholder="Email"
               required
             />
-            <label className="label">Photo URL</label>
+            <label className="label">Photo URL (optional)</label>
             <input
               name="photoURL"
               type="text"
               className="input"
               placeholder="Photo URL"
-              required
+              
             />
 
             <label className="label">Password</label>
