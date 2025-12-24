@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link,  useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthProvider";
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -44,13 +46,21 @@ const Register = () => {
         })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
+            
           })
           .catch((error) => {
             //console.log(error);
             setUser(user);
           });
-        alert("Registration Successfull");
+       // alert("Registration Successfull");
+      
+        Swal.fire({
+          title: "Thank You For Registration!",
+          icon: "success",
+          draggable: true,
+        });
         navigate("/");
+          
       })
       .catch((error) => {
         console.log(error.message);
@@ -107,7 +117,7 @@ const Register = () => {
                 {showPassword ? <IoIosEyeOff size={20}/> : <IoMdEye size={20} />}
               </span>
             </div>
-            <button to="/" type="submit" className="btn btn-neutral mt-4">
+            <button  type="submit"  className="btn btn-neutral mt-4">
               Register
             </button>
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}

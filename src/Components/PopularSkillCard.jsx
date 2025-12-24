@@ -26,7 +26,7 @@ const PopularSkillCard = ({ skill }) => {
           ${price}
         </p>
 
-        <Link to="/auth/login" className="btn btn-outline btn-primary btn-sm w-full">
+        <Link to={`/skill-details/${skill.skillId}`} className="btn btn-outline btn-primary btn-sm w-full">
           View Details
         </Link>
       </div>

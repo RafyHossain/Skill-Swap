@@ -1,11 +1,15 @@
 import React, { use, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link,  useLocation,  useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthProvider";
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const location=useLocation();
+  console.log(location)
+
   const [showPassword, setShowPassword] = useState(false);
-  //const location=useLocation();
+  
   const navigate = useNavigate();
   const { setUser, logIn, googleLogIn } = use(AuthContext);
   const handleLogin = (event) => {
@@ -15,29 +19,53 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         const user = result.user;
-        setUser(user);
-        alert("Login Successful");
-        navigate("/");
-        // navigate(`${location.state ? location.state : "/"}`);
+         setUser(user);
+        navigate(`${location.state ? location.state : "/"}`);
+        
+        //alert("Login Successful");
+         Swal.fire({
+          title: "Login Successful!",
+          icon: "success",
+          draggable: true,
+        });
+       // navigate("/");
+        
 
-        console.log(user);
+        //console.log(user);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error) => { 
+        console.log(error.message)
+         Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Invalid mail or credential",
+          
+        });
       });
+
+      event.target.reset();
   };
   const handleGoogleLogin = () => {
     googleLogIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+         Swal.fire({
+          title: "Login Successful!",
+          icon: "success",
+          draggable: true,
+        });
+       // console.log(user);
         setUser(user);
-        alert("Login Successfull");
-        navigate("/");
+        //alert("Login Successfull");
+         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.log(error);
-      });
+        console.log(error.message);
+        
+
+      }); 
+
+      
   };
   return (
     <div className="flex justify-center min-h-screen items-center">

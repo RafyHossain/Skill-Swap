@@ -24,7 +24,7 @@ const Hero = () => {
             share what you know and learn what you love.
           </p>
 
-          <Link to='/auth/login'><button className="btn btn-primary rounded-xl">Get Started</button></Link>
+         
         </div>
       </div>
     </div>
