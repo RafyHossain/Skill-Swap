@@ -8,6 +8,8 @@ import Home from "../Pages/Home";
 import Hero from "../Components/Hero";
 import PrivateRoutes from "./PrivateRoutes";
 import SkillDetails from "../Pages/SkillDetails";
+import MyProfile from "../Pages/MyProfile";
+import Loading from "../Components/Loading";
 
 const router = createBrowserRouter([
   {
@@ -16,12 +18,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home,
-        loader: async () => {
+         loader: async () => {
           const res = await fetch("/skills.json");
           return res.json();
         },
+        hydrateFallbackElement:<Loading></Loading>,
+        Component: Home,
+       
       },
+      {
+      path: "profile",
+      element: (
+        <PrivateRoutes>
+          <MyProfile />
+        </PrivateRoutes>
+      ),
+    },
     ],
   },
   {
@@ -44,12 +56,14 @@ const router = createBrowserRouter([
     const res = await fetch("/skills.json");
     return res.json();
   },
+  hydrateFallbackElement:<Loading></Loading>,
   element: (
     <PrivateRoutes>
       <SkillDetails />
     </PrivateRoutes>
   )
-}
+},
+
 
 ]);
 export default router;

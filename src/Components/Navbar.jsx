@@ -60,6 +60,7 @@ const Navbar = () => {
     </li>
 
     <li>
+      
       <NavLink
         to={user ? "/profile" : "/auth/login"}
         className={navLinkClass}
