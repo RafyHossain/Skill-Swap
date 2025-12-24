@@ -1,31 +1,33 @@
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const BookSessionForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    
-    Swal.fire({
-      toast: true,
-      position: "top-end",
-      icon: "success",
-      title: "Session booked successfully!",
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-    });
-
-    
+    toast.success("Session booked successfully!");
     e.target.reset();
   };
 
   return (
-    <div className="card bg-base-100 shadow-md border p-6 mt-6">
-      <h3 className="text-xl font-bold mb-4">Book The Session</h3>
+    <div
+      data-aos="fade-up"
+      className="
+        w-full
+        max-w-sm sm:max-w-md md:max-w-lg
+        mx-auto
+        bg-base-100
+        shadow-lg
+        border
+        rounded-xl
+        p-5 sm:p-6 md:p-8
+        mt-6
+        animate__animated animate__fadeInUp
+      "
+    >
+      <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
+        Book The Session
+      </h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        
-        
         <div>
           <label className="label">
             <span className="label-text font-medium">Name</span>
@@ -39,7 +41,6 @@ const BookSessionForm = () => {
           />
         </div>
 
-        
         <div>
           <label className="label">
             <span className="label-text font-medium">Email</span>
@@ -53,8 +54,15 @@ const BookSessionForm = () => {
           />
         </div>
 
-        
-        <button type="submit" className="btn btn-primary w-full">
+        <button
+          type="submit"
+          className="
+            btn btn-primary w-full
+            animate__animated
+            hover:animate__pulse
+            transition
+          "
+        >
           Book Session
         </button>
       </form>

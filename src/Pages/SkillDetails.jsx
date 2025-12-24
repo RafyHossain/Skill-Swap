@@ -8,24 +8,20 @@ const SkillDetails = () => {
   const skills = useLoaderData();
   const { id } = useParams();
 
-  const skill = skills.find(
-    (s) => s.skillId.toString() === id
-  );
+  const skill = skills.find((s) => s.skillId.toString() === id);
 
   return (
-    
     <div>
-        <div>
-            <Navbar></Navbar>
-        </div>
-        <div className="max-w-4xl mx-auto my-10">
-        
-      <SkillDetailsCard skill={skill} />
-    </div>
-    
-    <div>
+      <div>
+        <Navbar></Navbar>
+      </div>
+      <div className="max-w-4xl mx-auto my-10">
+        <SkillDetailsCard skill={skill} />
+      </div>
+
+      <div>
         <Footer></Footer>
-    </div>
+      </div>
     </div>
   );
 };

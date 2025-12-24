@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import { FaUser, FaUserEdit } from "react-icons/fa";
+import { FaUser, FaUserEdit, FaSave } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyProfile = () => {
@@ -26,7 +26,6 @@ const MyProfile = () => {
       photoURL: photo,
     })
       .then(() => {
-        // update context user
         setUser({
           ...user,
           displayName: name,
@@ -36,7 +35,7 @@ const MyProfile = () => {
         Swal.fire({
           icon: "success",
           title: "Profile Updated Successfully!",
-          timer: 2000,
+          timer: 1800,
           showConfirmButton: false,
         });
 
@@ -53,48 +52,60 @@ const MyProfile = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-base-200 px-4">
-       
-      <div className="card bg-base-100 shadow-xl w-full max-w-md p-6">
-         <h2 className="font-bold text-2xl mb-10 text-center">User Information</h2>
+      <div
+        data-aos="zoom-in"
+        className="
+          card
+          bg-base-100
+          shadow-2xl
+          w-full
+          max-w-md
+          p-6
+          animate__animated animate__fadeInUp
+        "
+      >
+        <h2 className="font-bold text-2xl mb-6 text-center">
+          User Information
+        </h2>
 
-        {/* User Image */}
         <div className="flex justify-center">
           {user.photoURL ? (
             <img
               src={user.photoURL}
               alt="User"
-              className="w-28 h-28 rounded-full object-cover border"
+              className="w-28 h-28 rounded-full object-cover border-4 border-primary"
             />
           ) : (
-            <div className="w-28 h-28 rounded-full border flex items-center justify-center text-4xl">
-              <FaUser></FaUser>
+            <div className="w-28 h-28 rounded-full border-4 border-primary flex items-center justify-center text-4xl">
+              <FaUser />
             </div>
           )}
         </div>
 
-        {/* User Info */}
-        <div className="text-center mt-4 space-y-2">
-          <h2 className="text-2xl font-bold">
-            {user.displayName || "No Name"}
-          </h2>
-          <p className="text-gray-600">{user.email}</p>
+        <div className="text-center mt-4 space-y-1">
+          <h2 className="text-xl font-bold">{user.displayName || "No Name"}</h2>
+          <p className="text-gray-600 text-sm">{user.email}</p>
         </div>
 
-        {/* Update Button */}
         <div className="mt-6">
           <button
             onClick={() => setShowForm(!showForm)}
-            className="btn btn-primary w-full flex items-center gap-2"
+            className="btn btn-primary w-full flex items-center justify-center gap-2"
           >
             <FaUserEdit />
-            Update Profile
+            {showForm ? "Cancel Update" : "Update Profile"}
           </button>
         </div>
 
-        {/* Update Form */}
         {showForm && (
-          <form onSubmit={handleUpdateProfile} className="mt-6 space-y-4">
-
+          <form
+            onSubmit={handleUpdateProfile}
+            className="
+              mt-6
+              space-y-4
+              animate__animated animate__fadeIn
+            "
+          >
             <div>
               <label className="label">Name</label>
               <input
@@ -116,12 +127,15 @@ const MyProfile = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-success w-full">
+            <button
+              type="submit"
+              className="btn btn-success w-full flex items-center justify-center gap-2"
+            >
+              <FaSave />
               Save Changes
             </button>
           </form>
         )}
-
       </div>
     </div>
   );

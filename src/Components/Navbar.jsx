@@ -1,6 +1,5 @@
 import React, { use } from "react";
 import logo from "../assets/logo.png";
-
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 import { FaUser } from "react-icons/fa";
@@ -8,98 +7,92 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
+
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "text-primary font-semibold border-b-2 border-primary"
-      : "hover:text-primary";
+      : "hover:text-primary transition";
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        //console.log("Logged out");
         Swal.fire({
           title: "Log Out Successful!",
           icon: "success",
-          draggable: true,
+          timer: 1500,
+          showConfirmButton: false,
         });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm w-screen mx-auto">
-      <div className="navbar-start">
-       <div className="dropdown">
-  <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
+    <div
+      data-aos="fade-down"
+      className="navbar bg-base-100 shadow-sm w-full px-4 md:px-8 sticky top-0 z-50"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M4 6h16M4 12h8m-8 6h16"
-      />
-    </svg>
-  </div>
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
 
-  <ul
-    tabIndex={0}
-    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-20 mt-3 w-52 p-2 shadow"
-  >
-    <li>
-      <NavLink to="/" className={navLinkClass}>
-        Home
-      </NavLink>
-    </li>
-
-    <li>
-      
-      <NavLink
-        to={user ? "/profile" : "/auth/login"}
-        className={navLinkClass}
-      >
-        My Profile
-      </NavLink>
-    </li>
-  </ul>
-</div>
-
+          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-20 mt-3 w-52 p-3 shadow animate__animated animate__fadeInDown">
+            <li>
+              <NavLink to="/" className={navLinkClass}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={user ? "/profile" : "/auth/login"}
+                className={navLinkClass}
+              >
+                My Profile
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
         <img
-          className="w-[80px] h-[50px] mr-5 rounded-full"
           src={logo}
           alt="Logo"
+          className="w-[60px] h-[70px] ml-2 rounded-full object-fill"
         />
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal gap-2">
+        <ul className="menu menu-horizontal gap-6 text-sm font-medium">
           <li>
             <NavLink to="/" className={navLinkClass}>
               Home
             </NavLink>
           </li>
-
-          <li>
-            <NavLink
-              to={user ? "/profile" : "/auth/login"}
-              className={navLinkClass}
-            >
-              My Profile
-            </NavLink>
-          </li>
+          {user && (
+            <li>
+              <NavLink to="/profile" end className={navLinkClass}>
+                My Profile
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
 
-      <div className="navbar-end flex items-center gap-4 mr-5">
-        {user && (
+      <div className="navbar-end flex items-center gap-3">
+        {user ? (
           <>
             <div
               className="tooltip tooltip-left"
@@ -108,33 +101,34 @@ const Navbar = () => {
               {user?.photoURL ? (
                 <img
                   src={user.photoURL}
-                  alt=""
-                  className="w-12 h-12 rounded-full object-cover border cursor-pointer"
+                  alt="User"
+                  className="w-11 h-11 rounded-full object-cover border cursor-pointer"
                 />
               ) : (
-                <div className="w-12 h-12 rounded-full border flex items-center justify-center cursor-pointer">
-                  <FaUser className="text-xl" />
+                <div className="w-11 h-11 rounded-full border flex items-center justify-center cursor-pointer">
+                  <FaUser />
                 </div>
               )}
             </div>
 
             <button
               onClick={handleLogOut}
-              className="btn btn-primary rounded-xl px-6"
+              className="btn btn-primary rounded-xl btn-sm px-5 animate__animated hover:animate__pulse"
             >
               Log Out
             </button>
           </>
-        )}
-
-        {!user && (
+        ) : (
           <>
-            <Link to="/auth/login" className="btn btn-primary rounded-xl px-5">
+            <Link
+              to="/auth/login"
+              className="btn btn-primary rounded-xl btn-sm px-5"
+            >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn btn-primary rounded-xl ml-3"
+              className="btn  btn-primary rounded-xl btn-sm px-5"
             >
               Sign Up
             </Link>
