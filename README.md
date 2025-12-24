@@ -1,16 +1,71 @@
-# React + Vite
+# SkillSwap – A Local Skill Exchange Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  Live Website:
+https://skill-swap-72e9d.web.app
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+##  Project Purpose
+SkillSwap is a modern local skill exchange platform where users can offer, discover, and book skill-based services within their community.  
+The goal is to help people *learn, teach, and grow together* by sharing real-world skills such as coding, music, language learning, fitness, and more.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+##  Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- *Authentication System*
+  - Email & Password Login/Register
+  - Google Sign-in
+  - Protected Routes (Private Routes)
+
+  -   *User Profile*
+  - View user information
+  - Update profile name & photo
+  - Profile update using Firebase updateProfile()
+
+  - *Skill Management*
+  - Browse popular skills
+  - View detailed skill information
+  - Book a session with success notification
+
+  - *Top Rated Providers*
+  - Show top-rated skill providers with ratings
+
+  - *Fully Responsive Design*
+  - Optimized for mobile, tablet, and desktop
+  - No layout breaking on any screen size
+
+-  *Modern UI & Animations*
+  - Smooth scroll animations
+  - Subtle hover & entry effects
+  - Clean and modern interface using Tailwind & DaisyUI
+
+  - *User Feedback*
+  - Toast notifications
+  - SweetAlert success & error messages
+
+---
+
+##  Technologies Used
+
+### Frontend
+- React
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+
+### Authentication 
+- Firebase Authentication
+
+---
+
+##  NPM Packages Used
+
+- *react-router-dom* – Routing & navigation  
+- *firebase* – Authentication  
+- *sweetalert2* – Alert & confirmation messages  
+- *react-hot-toast* – Toast notifications  
+- *aos* – Animate on scroll  
+- *animate.css* – CSS animations  
+- *react-icons* – Icon library  
+- *swiper* – Slider / carousel (if used)
