@@ -10,6 +10,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import SkillDetails from "../Pages/SkillDetails";
 import MyProfile from "../Pages/MyProfile";
 import Loading from "../Components/Loading";
+import ForgotPassword from "../Pages/Auth/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -18,22 +19,21 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-         loader: async () => {
+        loader: async () => {
           const res = await fetch("/skills.json");
           return res.json();
         },
-        hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         Component: Home,
-       
       },
       {
-      path: "profile",
-      element: (
-        <PrivateRoutes>
-          <MyProfile />
-        </PrivateRoutes>
-      ),
-    },
+        path: "profile",
+        element: (
+          <PrivateRoutes>
+            <MyProfile />
+          </PrivateRoutes>
+        ),
+      },
     ],
   },
   {
@@ -48,22 +48,24 @@ const router = createBrowserRouter([
         path: "/auth/login",
         Component: Login,
       },
+      {
+        path: "/auth/forgot-password",
+        element:<ForgotPassword></ForgotPassword>,
+      },
     ],
   },
   {
-  path: "/skill-details/:id",
-  loader: async () => {
-    const res = await fetch("/skills.json");
-    return res.json();
+    path: "/skill-details/:id",
+    loader: async () => {
+      const res = await fetch("/skills.json");
+      return res.json();
+    },
+    hydrateFallbackElement: <Loading></Loading>,
+    element: (
+      <PrivateRoutes>
+        <SkillDetails />
+      </PrivateRoutes>
+    ),
   },
-  hydrateFallbackElement:<Loading></Loading>,
-  element: (
-    <PrivateRoutes>
-      <SkillDetails />
-    </PrivateRoutes>
-  )
-},
-
-
 ]);
 export default router;

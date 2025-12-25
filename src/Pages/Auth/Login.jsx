@@ -5,6 +5,8 @@ import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const [emailValue, setEmailValue] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
   const { setUser, logIn, googleLogIn } = React.useContext(AuthContext);
@@ -90,6 +92,8 @@ const Login = () => {
               type="email"
               className="input input-bordered w-full"
               placeholder="Email"
+              alue={emailValue}
+              onChange={(e) => setEmailValue(e.target.value)}
               required
             />
           </div>
@@ -111,9 +115,15 @@ const Login = () => {
             </span>
           </div>
 
-          <div className="text-right">
-            <a className="link link-hover text-sm">Forgot password?</a>
-          </div>
+         <div className="mb-3">
+           <Link
+            to="/auth/forgot-password"
+            state={{ email: emailValue }}
+            className="link link-hover text-sm text-primary "
+          >
+            Forgot password?
+          </Link>
+         </div>
 
           <button
             type="submit"

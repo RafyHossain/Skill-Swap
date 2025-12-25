@@ -56,7 +56,9 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            {
+              user && (
+                <li>
               <NavLink
                 to={user ? "/profile" : "/auth/login"}
                 className={navLinkClass}
@@ -64,6 +66,8 @@ const Navbar = () => {
                 My Profile
               </NavLink>
             </li>
+              )
+            }
           </ul>
         </div>
 
